@@ -1,0 +1,31 @@
+<html>
+<head>
+</head>
+<body>
+   <h2>Check whether the Checkbox is checked or not</h2>
+   <h4>Check the below all checkboxes to enable the submit button.</h4>
+   <input type = "checkbox" name = "checkbox">
+   <input type = "checkbox" name = "checkbox">
+   <input type = "checkbox" name = "checkbox">
+   <button id = "btn" disabled> enable button</button>
+   <script>
+ 
+      // access elements by id and name
+      let checkbox = document.getElementsByName("checkbox");
+      let button = document.getElementById("btn"); //Initialilly checkbox is disabled
+      for (let i = 0; i < checkbox.length; i++) {
+ 
+         // iterate through every checkbox and add event listner to every checkbox.
+         checkbox[i].addEventListener( "change", () => {
+            button.disabled = false;
+ 
+            // if all checkbox values is checked then button remains enable, otherwise control goes to the if condition and disables button.
+            for (let i = 0; i < checkbox.length; i++) {
+               if ( checkbox[i].checked == false )
+               button.disabled = true;
+            }
+         });
+      }
+   </script>
+</body>
+</html>
